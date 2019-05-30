@@ -33,7 +33,8 @@ If you've just installed prettier, this runs prettier against the entire code ba
 While optional, it's highly recommended to add a pre-commit hook so that prettier runs on all commits. This automates prettier and prevents any files from becoming out of sync with our formatting.
 
 ```bash
-yarn add husky --dev
+yarn add -D husky
+yarn add -D lint-staged
 ```
 
 Then, add to your `package.json`
