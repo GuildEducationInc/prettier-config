@@ -54,3 +54,8 @@ Then, add to your `package.json`
 + }
 }
 ```
+
+### FAQ
+
+#### Ignoring files
+To ignore files, add a `.prettierignore` to the root of your project and add any glob patterns of files you'd like for prettier to ignore.
