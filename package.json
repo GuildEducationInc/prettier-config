@@ -1,0 +1,10 @@
+{
+  "name": "@guildeducationinc/prettier-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Guild Education's Prettier Config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuildEducationInc/prettier-config.git"
+  }
+}
