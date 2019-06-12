@@ -7,6 +7,7 @@ At Guid, we uses [`prettier`](https://prettier.io/) to format our code javascrip
 ```bash
 yarn add -D @guildeducationinc/prettier-config
 ```
+
 ## Usage
 
 Make sure that you have prettier installed in your project. To learn how to do this, refer to [prettier docs](https://prettier.io/docs/en/install.html).
@@ -21,22 +22,25 @@ To use the Guild prettier config, simply add the following to your `package.json
 }
 ```
 
-Next, run 
+Next, run
+
 ```bash
 yarn prettier  --write "src/**/*.{ts,tsx,js,jsx}"
 ```
 
 If you've just installed prettier, this runs prettier against the entire code base and formats it to match our standard config.
 
-
 ## Optional: Add pre-commit hook
+
 While optional, it's highly recommended to add a pre-commit hook so that prettier runs on all commits. This automates prettier and prevents any files from becoming out of sync with our formatting.
 
 ```bash
-yarn add husky --dev
+yarn add -D husky
+yarn add -D lint-staged
 ```
 
 Then, add to your `package.json`
+
 ```diff
 {
   "name": "my-project-name",
@@ -55,7 +59,16 @@ Then, add to your `package.json`
 }
 ```
 
+Or, add a `prettier.config.js` file in the root of your project with the following
+
+```
+  module.exports = {
+    ...require('@guildeducationinc/prettier-config'),
+  };
+```
+
 ### FAQ
 
 #### Ignoring files
+
 To ignore files, add a `.prettierignore` to the root of your project and add any glob patterns of files you'd like for prettier to ignore.
