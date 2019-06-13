@@ -30,7 +30,41 @@ yarn prettier  --write "src/**/*.{ts,tsx,js,jsx}"
 
 If you've just installed prettier, this runs prettier against the entire code base and formats it to match our standard config.
 
-## Optional: Add pre-commit hook
+## Adding commands to `package.json`
+To make it easier to manage prettier formatting, it's highly recommended to add the following scrips to your projects `package.json`
+
+```diff
+# package.json
+{
+  ...
+  "scripts": {
+    ...
++   "prettier:format": "prettier --write "src/**/*.{ts,tsx,js,jsx}",
++   "prettier:check": "prettier --check "src/**/*.{ts,tsx,js,jsx}",
+    ...
+  }
+}
+```
+
+These commands allow you to both format and check your code using yarn commands.
+## Setting up Circleci
+
+We view formatting as a part of the CI process for any new PR. Builds should fail if code is not formatted correctly.
+
+In the projects `config.yml`, add the following to your jobs:
+```diff
+# config.yml
+...
+jobs:
++ prettier:
++    - run:
++       name: Prettier Check
++       command: yarn prettier:check
+...
+```
+Add this job to your workflow if the projects uses them.
+
+## Optional (__Highly Recommended__): Add pre-commit hook
 
 While optional, it's highly recommended to add a pre-commit hook so that prettier runs on all commits. This automates prettier and prevents any files from becoming out of sync with our formatting.
 
