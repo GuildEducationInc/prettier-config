@@ -1,6 +1,6 @@
 {
   "name": "@guildeducationinc/prettier-config",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "description": "Guild Education's Prettier Config",
   "repository": {
