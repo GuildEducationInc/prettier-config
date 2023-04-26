@@ -1,4 +1,5 @@
 module.exports = {
+  importOrderParserPlugins: ["typescript", "decorators-legacy"],
   printWidth: 100,
   semi: true,
   singleQuote: true,
