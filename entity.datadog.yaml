@@ -1,0 +1,22 @@
+apiVersion: v3
+kind: service
+metadata:
+  name: prettier-config
+  owner: sdet
+  contacts:
+    - name: Support - Slack
+      type: slack
+      contact: 'https://guild-education.slack.com/archives/C050JBP9BAQ'
+  links:
+    - name: Source
+      type: repo
+      provider: github
+      url: 'https://github.com/GuildEducationInc/prettier-config'
+    - name: README
+      type: doc
+      url: 'https://github.com/GuildEducationInc/prettier-config/blob/main/README.md'
+    - name: Jira Board
+      type: other
+      url: 'https://guild-education.atlassian.net/jira/software/c/projects/QPASS/boards/865'
+  tags:
+    - pillar:foundations-pillar
