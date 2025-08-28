@@ -1,0 +1,24 @@
+name: Run Fitness Functions (Weekly)
+
+permissions:
+  contents: read
+  pull-requests: read
+
+on:
+  # Allow manual executions for ad-hoc runs
+  workflow_dispatch:
+  # Automatically run the workflow to ensure Datadog Scorecards are up-to-date
+  schedule:
+    # Runs every week on Sunday at 9pm MT (UTC-7)
+    # Generally, we should run fitness functions every week, but you can adjust the schedule to fit your needs.
+    - cron: "0 4 * * 0"
+
+env:
+  GITHUB_TOKEN: ${{ secrets.DEVOPS_ALL_GITHUB_DEVOPS_BOT_PAT }}
+
+jobs:
+  run-fitness-functions:
+    uses: GuildEducationInc/fitness-functions/.github/workflows/weekly-guild-fitness-functions.yml@sqa-weekly-workflow-v1
+    secrets: inherit
+    with:
+      service_name: ${{ github.event.repository.name }}
